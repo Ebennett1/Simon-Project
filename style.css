@@ -72,6 +72,20 @@ p {
   margin-top: 65px;
 }
 
+.startButton {
+  position: absolute;
+ left: 24px;
+ bottom: 18px;
+ cursor: pointer;
+}
+
+.resetButton {
+  position: absolute;
+  left: 70px;
+  bottom: 18px;
+  cursor: pointer;
+}
+
 
 .active {
   background-color: white;
