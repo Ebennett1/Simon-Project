@@ -1,0 +1,83 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+   margin: 0;
+   margin-bottom: 10px;
+   background-color: black;
+  
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(2, 230px);
+  grid-gap: 10px;
+  background-color: black;
+  border-radius: 50%;
+  width: 450px; 
+  height: 450px; 
+  overflow: hidden; 
+  cursor: pointer;
+}
+
+.button:hover {
+  box-shadow: inset 0px 0px 0px 3px violet;
+  box-sizing: border-box;
+}
+
+
+#green {
+  background-color: green;
+  
+ 
+
+
+}
+
+#red {
+  background-color: red;
+
+ 
+  
+
+}
+
+#yellow {
+  background-color: yellow;
+ 
+
+}
+
+#blue {
+  background-color: blue;
+ 
+
+}
+
+.center {
+  background-color: black;
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  position: absolute;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  
+}
+
+p {
+  color: aliceblue;
+  text-align: center;
+  margin-top: 65px;
+}
+
+
+.active {
+  background-color: white;
+}
+
+
+
+
+
