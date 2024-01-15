@@ -1,69 +1,152 @@
 // Selecting buttons using querySelector
-const greenButtn = document.querySelector('#green')
-const redButtn = document.querySelector('#red')
-const yellowButtn = document.querySelector('#yellow')
-const blueButtn = document.querySelector('#blue')
+const greenButton = document.querySelector("#green")
+const redButton = document.querySelector("#red")
+const yellowButton = document.querySelector("#yellow")
+const blueButton = document.querySelector("#blue")
 
-let sequence = [];
-let playerSequence = [];
-const colors = ['green', 'red', 'yellow', 'blue'];
-let level = 1
+const scoreDisplay = document.querySelector("#score")
 
-// Function to start the game
-const startGame = function() {
-//   randomSequence();
-// console.log(sequence);
-// displaySequence();
+const startButton = document.querySelector(".startButton")
+const resetButton = document.querySelector(".resetButton")
 
+const gameContainer = document.querySelector(".game-container")
+
+
+// Game variables
+let score = 0;
+let gameSequence = [];
+let userSequence = [];
+
+// Event listeners
+greenButton.addEventListener("click", () => {
+  handleButtonClick("green");
+});
+
+redButton.addEventListener("click", () => {
+  handleButtonClick("red");
+});
+
+yellowButton.addEventListener("click", () => {
+  handleButtonClick("yellow");
+});
+
+blueButton.addEventListener("click", () => {
+  handleButtonClick("blue");
+});
+
+// Similar event listeners for other buttons
+
+startButton.addEventListener("click", () => {
+  startGame();
+});
+
+resetButton.addEventListener("click", () => {
+  resetGame();
+});
+
+// Game logic functions
+function startGame() {
+  resetGame();
+  addToSequence();
+  updateScoreDisplay();
+  playSequence();
 }
 
-// Function to generate a random sequence
-const randomSequence = function() {
-  sequence = [];
- for (let i = 0; i < level; i++) {
-        const randomColor = colors[Math.floor(Math.random() * 4)];
-        sequence.push(randomColor);
+function resetGame() {
+  score = 0;
+  gameSequence = [];
+  userSequence = [];
+  updateScoreDisplay();
+}
+
+function addToSequence() {
+  const buttons = ["green", "red", "yellow", "blue"];
+  const randomButton = buttons[Math.floor(Math.random() * buttons.length)];
+  gameSequence.push(randomButton);
+  playSequence();
+}
+
+function playSequence() {
+  // Simulate the sequence by highlighting each button in order
+  let i = 0;
+  const intervalId = setInterval(() => {
+    highlightButton(gameSequence[i]);
+    i++;
+    if (i >= gameSequence.length) {
+      clearInterval(intervalId);
+      enableUserInput();
     }
+  }, 2000);
 }
-// randomSequence();
-// console.log(sequence)
 
-// const displaySequence = function () {
-//   let i = 0;
-//   const delay = setInterval(() => {
-//     flashButton(sequence[i]);
-//     i++;
-//     if (i === sequence.length) {
-//       clearInterval(delay);
-//       acceptPlayerInput();
-//     }
-//   }, 1000);
-// }
+function handleButtonClick(buttonColor) {
+  userSequence.push(buttonColor);
+  checkUserInput();
+  highlightButton(buttonColor);
+}
 
-// const flashButton = function(color) {
-//   const button = document.querySelector(`.${color}`);
-//   return new Promise((resolve) => {
-//     button.classList.add('active');
-//     setTimeout(() => {
-//       button.classList.remove('active');
-//       resolve();
-//     }, 1000);
-//   });
-// }
+function checkUserInput() {
+  const lastIndex = userSequence.length - 1;
+
+  // Check if the latest user input is incorrect
+  if (userSequence[lastIndex] !== gameSequence[lastIndex]) {
+    // Incorrect button pressed, game over
+    endGame();
+  } else if (userSequence.length === gameSequence.length) {
+    // User completed the sequence
+    if (arraysEqual(userSequence, gameSequence)) {
+      // User input matches the sequence, increase score and continue
+      score++;
+      updateScoreDisplay();
+      addToSequence();
+    } else {
+      // Incorrect sequence, game over
+      endGame();
+    }
+  }
+}
+
+function enableUserInput() {
+  // Enable user input for button clicks
+  gameContainer.classList.add("active");
+}
+
+function disableUserInput() {
+  // Disable user input during computer's turn
+  gameContainer.classList.remove("active");
+  gameContainer.classList.add("inactive");
+}
+
+function highlightButton(buttonColor) {
+  // Simulate button highlight
+  const button = document.querySelector(`#${buttonColor}`);
+  button.classList.add("button-highlight");
+  setTimeout(() => {
+    button.classList.remove("button-highlight");
+  }, 2000);
+}
+
+function updateScoreDisplay() {
+  const scoreSpan = document.querySelector("#score");
+  scoreSpan.textContent = score;
+}
+
+function endGame() {
+  alert(`Game Over! Your score is ${score}.`);
+  resetGame();
+}
 
 
-// const acceptPlayerInput = function() {
-//   // Add event listeners for button clicks
-//   greenButtn.addEventListener('click', handleButtonClick);
-//   redButtn.addEventListener('click', handleButtonClick);
-//   yellowButtn.addEventListener('click', handleButtonClick);
-//   blueButtn.addEventListener('click', handleButtonClick);
-// }
+startGame();
 
 
 
 
-// startGame();
+
+
+
+
+
 
 
 
