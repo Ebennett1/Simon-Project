@@ -28,39 +28,17 @@ body {
 }
 
 .button:hover {
-  box-shadow: inset 0px 0px 0px 3px violet;
+  box-shadow: inset 0px 0px 0px 3px cyan;
   box-sizing: border-box;
-}
-
-
-
-#green {
-  background-color: green;
   
- 
-
-
 }
 
-#red {
-  background-color: red;
-
- 
+.button-highlight {
+  background-color: white;
+  transition: box-shadow 0.5s ease;
   
-
 }
 
-#yellow {
-  background-color: yellow;
- 
-
-}
-
-#blue {
-  background-color: blue;
- 
-
-}
 
 .center {
   background-color: black;
@@ -93,22 +71,45 @@ p {
   cursor: pointer;
 }
 
-
-
- .button-highlight {
-  box-shadow: inset 0px 0px 0px 3px violet;
-  box-sizing: border-box;
-  transition: box-shadow 0.5s ease;
+.active {
+  background-color: white
+  
 }
 
-.game-container.active .button {
-  cursor: pointer;
+
+#green {
+  background-color: green;
+  
+ 
+
+
 }
 
-.game-container.inactive .button {
-  cursor: not-allowed;
-  opacity: 0.7;
+#red {
+  background-color: red;
+
+ 
+  
+
 }
+
+#yellow {
+  background-color: yellow;
+ 
+
+}
+
+#blue {
+  background-color: blue;
+ 
+
+}
+
+
+
+
+
+
 
 
 
