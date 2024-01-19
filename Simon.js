@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
      round = 1;
     resetGame();
     addToSequence();
-   playSequence();
+  //  playSequence();
    updateScoreDisplay();
   }
 
@@ -92,9 +92,9 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
           enableButtons();
           isComputerPlaying = false;
-        }, 500); // Adjust this timing as needed
+        }, 500); 
       }
-    }, 1000); // Adjust this timing as needed
+    }, 1000); 
   }
 
   function checkPlayerInput() {
@@ -170,12 +170,13 @@ document.addEventListener('DOMContentLoaded', function () {
       round = 1;
       resetGame();
     } else {
-      round++;
+      
       userSequence = []; // Reset user sequence for the next round
       addToSequence();
       setTimeout(() => {
         playSequence();
       }, 1000);
+      round++;
     }
   }
 
