@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const resetButton = document.querySelector(".resetButton")
 
   const gameContainer = document.querySelector(".game-container")
+  
+
+ 
 
   // Game variables
   let score = 0;
@@ -24,12 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
     
     if (!isComputerPlaying) {
       handleButtonClick("green");
+      playGreenSound();
     }
   });
 
   redButton.addEventListener("click", () => {
     if (!isComputerPlaying) {
       handleButtonClick("red");
+      playRedSound();
     }
   });
 
@@ -53,6 +58,40 @@ document.addEventListener('DOMContentLoaded', function () {
     resetGame();
   });
 
+// game sound functions
+  function playWinningSound() {
+    const winningSound = document.getElementById('winning');
+    winningSound.play();
+  }
+
+  function playLoosingSound() {
+    const loosingSound = document.getElementById('loosing');
+    loosingSound.play();
+  }
+
+  function playGreenSound() {
+    const greenSound = document.getElementById('greenSound');
+    greenSound.play();
+  }
+
+  function playRedSound() {
+    const redSound = document.getElementById('redSound');
+    redSound.play();
+  }
+
+  function playYellowSound() {
+    const yellowSound = document.getElementById('yellowSound');
+    yellowSound.play();
+  }
+  
+  function playBlueSound() {
+    const blueSound = document.getElementById('blueSound');
+    blueSound.play();
+  }
+
+
+  
+  
   // Game logic functions
   function startGame() {
     // console.log("Game started");
@@ -166,17 +205,19 @@ document.addEventListener('DOMContentLoaded', function () {
   
     // Check if the user's sequence is correct
     if (!arraysEqual(userSequence, gameSequence)) {
+      
       alert('Incorrect sequence! Starting a new round.');
       round = 1;
       resetGame();
     } else {
-      
       userSequence = []; // Reset user sequence for the next round
       addToSequence();
       setTimeout(() => {
         playSequence();
       }, 1000);
       round++;
+
+      
     }
   }
 
