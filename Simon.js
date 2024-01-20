@@ -1,4 +1,4 @@
-let round;
+
 document.addEventListener('DOMContentLoaded', function () {
   // Selecting buttons using querySelector
   const greenButton = document.querySelector("#green")
@@ -20,35 +20,24 @@ document.addEventListener('DOMContentLoaded', function () {
   let score = 0;
   let gameSequence = [];
   let userSequence = [];
+  let round = 1;
   let isComputerPlaying = false;
 
   // Event listeners
-  greenButton.addEventListener("click", () => {
-    
-    if (!isComputerPlaying) {
-      handleButtonClick("green");
-      playGreenSound();
-    }
-  });
-
-  redButton.addEventListener("click", () => {
-    if (!isComputerPlaying) {
-      handleButtonClick("red");
-      playRedSound();
-    }
-  });
-
-  yellowButton.addEventListener("click", () => {
-    if (!isComputerPlaying) {
-      handleButtonClick("yellow");
-    }
-  });
-
-  blueButton.addEventListener("click", () => {
-    if (!isComputerPlaying) {
-      handleButtonClick("blue");
-    }
-  });
+  function addColorButtonListener(color, soundFunction) {
+    const button = document.querySelector(`#${color}`);
+    button.addEventListener("click", () => {
+      if (!isComputerPlaying) {
+        handleButtonClick(color);
+        soundFunction();
+      }
+    });
+  }
+  
+  addColorButtonListener("green", playGreenSound);
+  addColorButtonListener("red", playRedSound);
+  addColorButtonListener("yellow", playYellowSound);
+  addColorButtonListener("blue", playBlueSound);
 
   startButton.addEventListener("click", () => {
     startGame();
@@ -163,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
       alert('Game Over! Your sequence was incorrect.');
       resetGame();
     } else if (userSequence.length === gameSequence.length) {
-      alert(`Round ${round} Complete!`);
+      endRound(`Round ${round} Complete!`);
       round++;
       userSequence = [];
       addToSequence();
@@ -200,8 +189,9 @@ document.addEventListener('DOMContentLoaded', function () {
     return JSON.stringify(arr1) === JSON.stringify(arr2);
   }
 
-  function endRound() {
-    alert(`Round ${round} Complete! Your score is ${score}.`);
+  function endRound(customMessage) {
+    const message = customMessage || `Round ${round} Complete! Your score is ${score}.`;
+    alert(message);
   
     // Check if the user's sequence is correct
     if (!arraysEqual(userSequence, gameSequence)) {
