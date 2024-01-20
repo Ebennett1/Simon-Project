@@ -1,14 +1,18 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   // Selecting buttons using querySelector
-  const greenButton = document.querySelector("#green")
-  const redButton = document.querySelector("#red")
-  const yellowButton = document.querySelector("#yellow")
-  const blueButton = document.querySelector("#blue")
+  const buttons = {
+    green: document.querySelector("#green"),
+    red: document.querySelector("#red"),
+    yellow: document.querySelector("#yellow"),
+    blue: document.querySelector("#blue"),
+  };
 
+  
   const scoreDisplay = document.querySelector("#score")
 
   const startButton = document.querySelector(".startButton")
+
   const resetButton = document.querySelector(".resetButton")
 
   const gameContainer = document.querySelector(".game-container")
