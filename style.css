@@ -9,6 +9,22 @@ body {
   
 }
 
+.message-container {
+  position: absolute;
+  top: 82%;
+  left: 82%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  display: none;
+}
+
+.message-text {
+  color: black;
+}
+
 .game-container {
   display: grid;
   grid-template-columns: repeat(2, 230px);

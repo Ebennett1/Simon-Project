@@ -82,6 +82,28 @@ document.addEventListener('DOMContentLoaded', function () {
     blueSound.play();
   }
 
+  function showMessage(message, callback) {
+    const messageContainer = document.getElementById('messageContainer');
+    const messageText = document.getElementById('messageText');
+    const okButton = document.getElementById('okButton');
+  
+    messageText.textContent = message;
+    
+    okButton.onclick = function () {
+      messageContainer.style.display = 'none';
+      if (callback) {
+          callback();
+      }
+  };
+
+    messageContainer.style.display = 'block';
+  }
+
+  function hideMessage() {
+    const messageContainer = document.getElementById('messageContainer');
+    messageContainer.style.display = 'none';
+  }
+
 
   
   
@@ -108,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gameSequence.push(randomButton);
     playSequence();
   }
-
+// try to make it so colors dont repeate too many times
 
   function playSequence() {
     // console.log("Playing sequence");
@@ -153,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function handleButtonClick(buttonColor) {
     userSequence.push(buttonColor);
     if (!checkPlayerInput()) {
-      alert('Game Over! Your sequence was incorrect.');
+      showMessage('Game Over! Your sequence was incorrect.');
       resetGame();
     } else if (userSequence.length === gameSequence.length) {
       endRound(`Round ${round} Complete!`);
@@ -176,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function highlightButton(color) {
     const button = document.getElementById(color);
-    button.style.opacity = 0.5;
+    button.style.opacity = 0.3;
     setTimeout(() => {
       button.style.opacity = 1;
     }, 500);
@@ -195,15 +217,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function endRound(customMessage) {
     const message = customMessage || `Round ${round} Complete! Your score is ${score}.`;
-    alert(message);
+    
   
     // Check if the user's sequence is correct
     if (!arraysEqual(userSequence, gameSequence)) {
-      
-      alert('Incorrect sequence! Starting a new round.');
+      showMessage('Incorrect sequence! Starting a new round.');
       round = 1;
       resetGame();
     } else {
+      playWinningSound();
+      showMessage(message);
       userSequence = []; // Reset user sequence for the next round
       addToSequence();
       setTimeout(() => {
@@ -216,8 +239,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function endGame() {
-    alert(`Game Over! Your score is ${score}.`);
+    showMessage(`Game Over! Your score is ${score}.`);
     resetGame();
+    playLoosingSound();
   }
 });
 
