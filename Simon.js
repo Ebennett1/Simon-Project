@@ -1,14 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Selecting buttons using querySelector
-  const buttons = {
-    green: document.querySelector("#green"),
-    red: document.querySelector("#red"),
-    yellow: document.querySelector("#yellow"),
-    blue: document.querySelector("#blue"),
-  };
 
-  
   const scoreDisplay = document.querySelector("#score")
 
   const startButton = document.querySelector(".startButton")
@@ -18,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const gameContainer = document.querySelector(".game-container")
   
 
- 
 
   // Game variables
   let score = 0;
@@ -26,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let userSequence = [];
   let round = 1;
   let isComputerPlaying = false;
+  
 
   // Event listeners
   function addColorButtonListener(color, soundFunction) {
@@ -89,12 +81,12 @@ document.addEventListener('DOMContentLoaded', function () {
   
     messageText.textContent = message;
     
-    okButton.onclick = function () {
-      messageContainer.style.display = 'none';
-      if (callback) {
-          callback();
-      }
-  };
+      okButton.onclick = function () {
+        messageContainer.style.display = 'none';
+        if (callback) {
+            callback();
+        }
+    };
 
     messageContainer.style.display = 'block';
   }
@@ -105,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  
   
   // Game logic functions
   function startGame() {
@@ -129,8 +120,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const randomButton = buttons[Math.floor(Math.random() * buttons.length)];
     gameSequence.push(randomButton);
     playSequence();
+    
   }
-// try to make it so colors dont repeate too many times
+
 
   function playSequence() {
     // console.log("Playing sequence");
@@ -146,7 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
           enableButtons();
           isComputerPlaying = false;
-        }, 500); 
+      
+        }, 600); 
       }
     }, 1000); 
   }
@@ -168,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function () {
         playSequence();
       }
     }
-
     return true;
   }
 
@@ -201,7 +193,8 @@ document.addEventListener('DOMContentLoaded', function () {
     button.style.opacity = 0.3;
     setTimeout(() => {
       button.style.opacity = 1;
-    }, 500);
+    }, 600);
+    console.log('color')
   }
 
   function updateScoreDisplay() {
@@ -217,7 +210,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function endRound(customMessage) {
     const message = customMessage || `Round ${round} Complete! Your score is ${score}.`;
-    
+
+   
   
     // Check if the user's sequence is correct
     if (!arraysEqual(userSequence, gameSequence)) {
@@ -230,13 +224,13 @@ document.addEventListener('DOMContentLoaded', function () {
       userSequence = []; // Reset user sequence for the next round
       addToSequence();
       setTimeout(() => {
-        playSequence();
-      }, 1000);
+        hideMessage();
+      playSequence();
+      }, 1500);
       round++;
-
-      
     }
   }
+
 
   function endGame() {
     showMessage(`Game Over! Your score is ${score}.`);
@@ -244,6 +238,9 @@ document.addEventListener('DOMContentLoaded', function () {
     playLoosingSound();
   }
 });
+
+// sequence highlights twice needs fix
+
 
 
 
