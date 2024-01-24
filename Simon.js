@@ -73,6 +73,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const blueSound = document.getElementById('blueSound');
     blueSound.play();
   }
+// Computer sequence sounds
+  function playColorSound(color) {
+    switch (color) {
+        case "green":
+            playGreenSound();
+            break;
+        case "red":
+            playRedSound();
+            break;
+        case "yellow":
+            playYellowSound();
+            break;
+        case "blue":
+            playBlueSound();
+            break;
+        // Add more cases if needed for additional colors
+    }
+}
 
   function showMessage(message, callback) {
     const messageContainer = document.getElementById('messageContainer');
@@ -132,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let i = 0;
     const intervalId = setInterval(() => {
       highlightButton(gameSequence[i]);
+      playColorSound(gameSequence[i]);
       i++;
       if (i >= gameSequence.length) {
         clearInterval(intervalId);
@@ -193,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.style.opacity = 0.3;
     setTimeout(() => {
       button.style.opacity = 1;
-    }, 300);
+    }, 600);
     console.log('color')
   }
 
@@ -238,7 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// sequence flash twice needs fix
 // add color sound when sequence plays 
 
 
