@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.style.opacity = 0.3;
     setTimeout(() => {
       button.style.opacity = 1;
-    }, 600);
+    }, 300);
     console.log('color')
   }
 
@@ -225,7 +225,6 @@ document.addEventListener('DOMContentLoaded', function () {
       addToSequence();
       setTimeout(() => {
         hideMessage();
-      playSequence();
       }, 1500);
       round++;
     }
@@ -239,7 +238,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// sequence highlights twice needs fix
+// sequence flash twice needs fix
+// add color sound when sequence plays 
 
 
 
