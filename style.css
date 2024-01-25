@@ -1,29 +1,31 @@
 body {
+  /* Flex container settings for centering content vertically and horizontally */
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-   margin: 0;
-   margin-bottom: 10px;
-   background-color: #000000;
-   animation: pulse 8s infinite;
-   
+  margin: 0;
+  margin-bottom: 10px;
+  background-color: #000000;
+  /* Pulse animation applied to the background color with an 8s duration, repeating infinitely */
+  animation: pulse 8s infinite;
 }
 
 @keyframes pulse {
+  /* Background color pulse animation keyframes */
   0% {
     background-color: black;
   }
   50% {
-    background-color: #6c9faf; 
+    background-color: #6c9faf;
   }
   100% {
     background-color: black;
   }
 }
 
-
 .message-container {
+  /* Styling for the message container */
   position: absolute;
   top: 82%;
   left: 82%;
@@ -36,42 +38,44 @@ body {
 }
 
 .message-text {
+  /* Styling for the message text */
   color: black;
 }
 
 .game-container {
+  /* Styling for the game container grid */
   display: grid;
   grid-template-columns: repeat(2, 230px);
   grid-gap: 10px;
   background-color: black;
   border-radius: 50%;
-  width: 450px; 
-  height: 450px; 
-  overflow: hidden; 
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
   cursor: pointer;
 }
 
-
 .button {
+  /* Styling for buttons with transition effects */
   transition: 0.3s ease;
   background-color: black;
   border-radius: 10px;
 }
 
 .button:hover {
+  /* Hover effect for buttons */
   box-shadow: inset 0px 0px 10px 3px cyan;
   box-sizing: border-box;
-  
 }
 
 .button-highlight {
+  /* Styling for highlighted buttons */
   background-color: black;
   transition: box-shadow 0.5s ease;
-  
 }
 
-
 .center {
+  /* Styling for the central circle */
   background-color: black;
   width: 140px;
   height: 140px;
@@ -79,73 +83,53 @@ body {
   position: absolute;
   margin-left: 15px;
   margin-bottom: 15px;
-  
 }
 
 p {
+  /* Styling for paragraphs */
   color: aliceblue;
   text-align: center;
   margin-top: 50px;
 }
 
 .startButton {
+  /* Styling for the start button */
   position: absolute;
- left: 24px;
- bottom: 22px;
- cursor: pointer;
- background-color: rgb(173, 197, 193);
+  left: 24px;
+  bottom: 22px;
+  cursor: pointer;
+  background-color: rgb(173, 197, 193);
 }
 
 .resetButton {
+  /* Styling for the reset button */
   position: absolute;
   left: 70px;
   bottom: 22px;
   cursor: pointer;
-  background-color:  rgb(173, 197, 193);;
+  background-color: rgb(173, 197, 193);
 }
 
 .active {
-  /* background-color: white */
-  
+  /* Placeholder for active state styling */
 }
 
-
 #green {
+  /* Styling for the green button */
   background-color: green;
-  
- 
-
-
 }
 
 #red {
+  /* Styling for the red button */
   background-color: red;
-
- 
-  
-
 }
 
 #yellow {
+  /* Styling for the yellow button */
   background-color: yellow;
- 
-
 }
 
 #blue {
+  /* Styling for the blue button */
   background-color: blue;
- 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
