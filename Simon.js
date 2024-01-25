@@ -191,9 +191,9 @@ document.addEventListener('DOMContentLoaded', function () {
           // Sets the isComputerPlaying flag to false, indicating that the computer has finished playing the sequence.
           isComputerPlaying = false;
       
-        }, 600); 
+        }, 600); // pause in between completing sequence and enabling input
       }
-    }, 1000); 
+    }, 1000); // function executes every 1 sec.
   }
 
   // checks if the user's input is correct and updates the score.
