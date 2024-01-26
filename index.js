@@ -136,11 +136,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Game logic functions
   // startGame function initializes the game, resets variables, and adds the first color to the sequence.
   function startGame() {
-    // console.log("Game started");
      round = 1;
     resetGame();
     addToSequence();
-  //  playSequence();
    updateScoreDisplay();
   }
 
@@ -164,7 +162,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // playSequence iterates through the computer's sequence, highlights buttons, plays corresponding sounds, and enables buttons after the sequence is played.
   function playSequence() {
-    // console.log("Playing sequence");
     isComputerPlaying = true;
     // Disables players ability to click
     disableButtons();
@@ -327,8 +324,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// checklist - Complete README.md
-// install- clone repository 
                 
 
 
