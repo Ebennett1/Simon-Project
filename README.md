@@ -9,17 +9,19 @@ Simon Game is a classic memory game where players need to remember and repeat a 
 - [Features](#features)
 - [How to Play](#how-to-play)
 - [Game Rules](#game-rules)
-- [Getting Started / Install instructions](#getting-started--install-instructions)
+- [Getting Started / Install Instructions](#getting-started--install-instructions)
 - [Technologies Used](#technologies-used)
 - [User Stories](#user-stories)
+- [Wireframes](#wireframes)
+- [Unsolved Problems](#unsolved-problems)
 - [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
 
 ## Demo
 
-[Demo Screenshot](https://imgur.com/GSKNY4z)
+![Demo Screenshot](https://i.imgur.com/GSKNY4z.png)
 
 
 You can check out the live demo of the Simon Game [here](https://ebennett1.github.io/Simon-Project/).
@@ -56,9 +58,9 @@ To run this project locally, follow these steps:
 
 ```bash
 git clone https://github.com/Ebennett1/Simon-Project.git
+```
 
-
-open index.html.
+2. Open the `index.html` file in your web browser.
 
 
 ## Technologies
@@ -85,9 +87,11 @@ The Simon Game project uses the following technologies:
 
 ## Wireframes
 
-[Wireframes1](https://imgur.com/8eUkyNf)
 
-[Wireframes2](https://imgur.com/64axUSZ)
+![Demo Screenshot1](https://i.imgur.com/8eUkyNf.jpg)
+
+
+![Demo Screenshot2](https://i.imgur.com/64axUSZ.jpg)
 
 
 
@@ -139,12 +143,12 @@ Thank you for checking out the Simon Game project. Have fun playing, and happy c
 
 ## Acknowledgements
 
-- https://chat.openai.com/
+- https://imgur.com/ : For image URL retrieval
 
-- https://www.zapsplat.com/
+- https://www.zapsplat.com/ : For sounds used in game
 
-- https://www.w3schools.com/
+- https://www.w3schools.com/ : For examples of Methods & Use case
 
-- https://imgur.com/
+- https://chat.openai.com/ : For Questions & debugging
 
-- SEI Instructors - Billie, Andrew, Justin
+- https://www.markdownguide.org/cheat-sheet/ :For Completion of README.md

@@ -11,7 +11,17 @@ body {
   animation: pulse 8s infinite;
 }
 
-
+/* Media query for screens with a maximum width of 600px (typical for mobile devices) */
+@media only screen and (max-width: 420px) {
+  
+  .game-container {
+    position: absolute;
+    height: auto;
+    width: auto;
+    
+    }
+   
+}
 
 @keyframes pulse {
   /* Background color pulse animation keyframes */
