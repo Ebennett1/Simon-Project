@@ -11,6 +11,20 @@ body {
   animation: pulse 8s infinite;
 }
 
+meta {
+  name: viewport;
+  content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0";
+}
+
+/* Mobile-specific styles using media queries */
+@media screen and (max-width: 600px) {
+  .game-container {
+    max-width: 300px; 
+  }
+
+
+}
+
 @keyframes pulse {
   /* Background color pulse animation keyframes */
   0% {

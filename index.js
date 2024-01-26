@@ -328,6 +328,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // checklist - Complete README.md
+// install- clone repository 
                 
 
 
